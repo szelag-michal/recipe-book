@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col-12">
+    <img [src]="recipe.imagePath" [alt]="recipe.name" class="img-fluid w-25">
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <h3>{{recipe.name}}</h3>
+    
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <div class="btn-group">
+      <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+      <a href="#" class="btn btn-outline-primary" (click)="onAddToShoppingList()">Add To Shopping List</a>
+      <a href="#" class="btn btn-outline-secondary">Edit Recipe</a>
+      <a href="#" class="btn btn-outline-info">Delete Recipe</a>
+    </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <p>{{recipe.description}}</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let ingredient of recipe.ingredients">{{ingredient.name}} - {{ingredient.amount}}</li>
+    </ul>
+  </div>
+</div>
