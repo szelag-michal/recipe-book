@@ -1,8 +1,8 @@
 <nav class="nav align-items-center bg-dark text-white">
   <a href="">Recipe Book</a>
   <ul class="nav ml-auto">
-    <li class="nav-item"><a class="nav-link" href="#">Recipes</a></li>
-    <li class="nav-item"><a class="nav-link" href="#">Shopping List</a></li>
+    <li class="nav-item"><a class="nav-link" [routerLink]="'recipes'" [routerLinkActive]="'active'">Recipes</a></li>
+    <li class="nav-item"><a class="nav-link" [routerLink]="'shopping-list'" [routerLinkActive]="'active'">Shopping List</a></li>
   </ul>
   <div class="form-group form-inline mb-0">
     <input type="text" class="form-element p-2" placeholder="Search"/>

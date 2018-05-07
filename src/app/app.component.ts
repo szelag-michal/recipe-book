@@ -6,8 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  selected: string;
-  onSelected(data: string) : void {
-    this.selected = data;
-  }
+
 }
