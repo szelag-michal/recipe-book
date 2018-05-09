@@ -1,4 +1,4 @@
-import { Http } from '@angular/http';
+import { Http, Response } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { RecipeService } from '../recipes/recipe.service';
 import { Recipe } from '../recipes/recipe.model';
@@ -11,7 +11,13 @@ export class DataStorageService {
     storeRecipes() {
         return this.http.put('https://lakomy-lasuch.firebaseio.com/recipes.json', this.recipeService.getRecipes());
     }
-    fetchRecipes() {
-        return this.http.get('https://lakomy-lasuch.firebaseio.com/recipes.json');
+    getRecipes() {
+        return this.http.get('https://lakomy-lasuch.firebaseio.com/recipes.json').subscribe(
+            (r: Response) => {
+                const recipes: Recipe[] = r.json();
+                this.recipeService.setRecipes(recipes);
+                console.log(recipes);
+            }
+        );
     }
 }
