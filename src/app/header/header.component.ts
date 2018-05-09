@@ -1,4 +1,6 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
+import { DataStorageService } from '../shared/data-storage.service';
+import { Response } from '@angular/http';
 
 @Component({
   selector: 'app-header',
@@ -6,11 +8,14 @@ import { Component, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  @Output() emitOnSelect = new EventEmitter<String>();
 
+  constructor(private dataStorageService: DataStorageService) {}
 
-  onSelectLink(data: string) {
-    this.emitOnSelect.emit(data);
+  onSaveData() {
+    this.dataStorageService.storeRecipes().subscribe((r: Response) => {console.log(r); });
+  }
 
+  onFetchData() {
+    this.dataStorageService.fetchRecipes().subscribe((r: Response) => {console.log(r.json()); });
   }
 }

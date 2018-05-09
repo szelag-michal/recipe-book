@@ -4,6 +4,10 @@
     <li class="nav-item"><a class="nav-link" [routerLink]="'recipes'" [routerLinkActive]="'active'">Recipes</a></li>
     <li class="nav-item"><a class="nav-link" [routerLink]="'shopping-list'" [routerLinkActive]="'active'">Shopping List</a></li>
   </ul>
+  <ul class="nav">
+    <li class="nav-item"><a (click)="onSaveData()">save</a></li>
+    <li class="nav-item"><a (click)="onFetchData()">fetch</a></li>
+  </ul>
   <div class="form-group form-inline mb-0">
     <input type="text" class="form-element p-2" placeholder="Search"/>
   </div>
